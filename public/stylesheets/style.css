@@ -1,0 +1,36 @@
+body {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+#nav {
+  display: none; }
+
+.about {
+  padding-top: 30px; }
+
+hr {
+  height: 1px;
+  border: 0;
+  border-top: 1px solid black;
+  color: black; }
+
+.mycenter {
+  left: 50%; }
+
+.right {
+  margin-left: 25%; }
+
+.left {
+  margin-left: 25%; }
+
+li.pad {
+  padding-left: 20px; }
+
+ul li.inline {
+  display: inline; }
+
+li.dot::before {
+  content: "\0020\2022\0020"; }
+
+/*# sourceMappingURL=style.css.map */

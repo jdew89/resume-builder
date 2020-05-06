@@ -1,5 +1,127 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	//-takes a list of elements describing experience
+	mixin work_hist(title,start,end,company,loc,desc)
+		div.row.px-3
+			div.col-12
+				b= title
+				span= ", "+start+" to "+end
+			div.col-12
+				b= company
+				span= " - "+loc
+			div.col-12
+				ul
+					each i in desc
+						li= i
+
+
+	mixin section_header(title)
+		div.row
+			div.col.text-center
+				hr
+				h3= title
+				hr
+
+	div.about
+		div.container
+			div.row
+				div.col.text-center
+					h1 Jeffrey DeWitt
+			div.row.mb-2
+				div.col.text-center
+					ul
+						li.inline Canton, OH
+						li.inline.dot (440) 539-1862
+						li.inline.dot jadewitt00@gmail.com
+			//hr
+			+section_header("Professional Summary")
+			div.row.px-3
+				div.col
+					span Talented Information Technology Professional with excellent customer service and 4+ years of Windows administration experience. Motivated to learn new skills and adapt to new technologies and environments. Effective and comfortable communicating with people of all skill levels.
+			+section_header("Skills")
+			div.row.px-3
+				div.col
+					ul.mycenter.left
+						li.pad Customer Service
+						li.pad Web Programming
+						li.pad MongoDB
+						li.pad Python
+				div.col
+					ul.mycenter.right
+						li.pad Windows Administration
+						li.pad Desktop Support
+						li.pad Data Migration
+						li.pad NodeJS
+			+section_header("Work History")
+			-
+				let tasks
+				tasks = [
+					"Provide technical support for 400+ agents and staff.",
+					"Write Google App Scripts to interface with various APIs.",
+					"Write Python scripts to crawl company website and perform data conversions.",
+					"Manage several APIs connections through Zapier.",
+					"Use Connectwise Control to remotely support 20+ offices.",
+					"Manage 80+ domain users through Active Directory and Group Policy.",
+					"Converted a fully physical server environment to a virtual environment.",
+					"Perform maintenance and deploy computers for staff.",
+					"Deployed MDT server for more efficient desktop deployment.",
+					"Set up new file servers using iSCSI.",
+					"Track inventory of all hardware and software licenses."
+				]
+			+work_hist("IT Director","10/2018","Current","Cutler Real Estate","Canton, Ohio",tasks)
+			-
+				tasks = [
+					"Provided technical support for 400+ agents and staff.",
+					"Wrote Python scripts to crawl the company's website.",
+					"Used LogMeIn Rescue to remotely support 20+ offices.",
+					"Designed and deployed Happyfox ticketing system.",
+					"Facilitated a conversion from Delta Mail to the G Suite product.	",
+					"Manage 80+ domain users through Active Directory and Group Policy.",
+					"Complete computer installs for staff computers.",
+					"Track inventory of all hardware and software licenses."
+				]
+			+work_hist("IT Support Specialist","03/2017","10/2018","Cutler Real Estate","Canton, Ohio",tasks)
+			-
+				tasks = [
+					"Provided technical, operation and training support for users.",
+					"Completed computer refreshes for client computers.",
+					"Tracked inventory of all hardware and software licenses.",
+					"Ensured printers are working properly and performed basic maintenance.",
+					"Assisted with bill coding and data entry.",
+					"Created documentation for procedures and installs.",
+					"Edited Active Directory and GPOs.",
+					"Patched, tested, and installed Ethernet cable."
+				]
+			+work_hist("IT Customer Support Specialist","02/2016","02/2017","Insight for Living","Frisco, Texas",tasks)
+			-
+				tasks = [
+					"Facilitated six high ropes challenge courses.",
+					"Welcomed and trained guests to use equipment on courses.",
+					"Assisted guests on courses.",
+					"Inspected and maintained courses and equipment.",
+					"Ensured customer safety."
+				]
+			//-push to next page...
+			br
+			br
+			+work_hist("Course Monitor","02/2015","02/2017","Trinity Forest Adventure Park","Dallas, Texas",tasks)
+			-
+				tasks = [
+					"Repaired cell phones and tablets.",
+					"Ensured high level of customer satisfaction.",
+					"De-escalated customer emotions in difficult situations.",
+					"Provided service recovery as needed.",
+					"Delivered quick diagnosis and solutions for customers.",
+					"Managed inventory of accessories, screens and components.",
+					"Reordered parts as necessary from vendors."
+				]
+			+work_hist("Store Manager","07/2015","02/2016","In & Out Smart Repair","Dallas, Texas",tasks)
+			+section_header("Education")
+			div.row.px-3
+				div.col-12
+					b Bachelor of Science:
+					span  Computer Science, 05/2013
+				div.col-12
+					b Malone University
+					span  - Canton, OH
