@@ -38,24 +38,34 @@ block content
 			+section_header("Professional Summary")
 			div.row.px-3
 				div.col
-					span Talented Information Technology Professional with excellent customer service and 4+ years of Windows administration experience. Motivated to learn new skills and adapt to new technologies and environments. Effective and comfortable communicating with people of all skill levels.
+					span Talented Information Technology Professional with excellent customer service and 5+ years of Windows administration experience. Motivated to learn new skills and adapt to new technologies and environments. Effective and comfortable communicating with people of all skill levels.
 			+section_header("Skills")
 			div.row.px-3
 				div.col
 					ul.mycenter.left
 						li.pad Customer Service
-						li.pad Web Programming
-						li.pad MongoDB
-						li.pad Python
+						li.pad Windows Administration
+						li.pad Server Management
+						li.pad G Suite Administration
 				div.col
 					ul.mycenter.right
-						li.pad Windows Administration
-						li.pad Desktop Support
-						li.pad Data Migration
-						li.pad NodeJS
+						li.pad AWS
+						li.pad PostgreSQL
+						li.pad Javascript - Node, Express, Vue
+						li.pad Python
 			+section_header("Work History")
+			- let tasks
 			-
-				let tasks
+				tasks = [
+					"Designed and built SaaS product for making electronic earnest money payments.",
+					"Coded using Node and Express for backend.",
+					"Front end coded in VueJS.",
+					"Data stored using PostgreSQL.",
+					//"Write Google App Scripts to interface with various APIs.",
+					"Hosted and maintained on AWS infrastructure.",
+				]
+			+work_hist("Full Stack Engineer","05/2020","Current","Easy Earnest","Canton, Ohio",tasks)
+			-
 				tasks = [
 					"Provide technical support for 400+ agents and staff.",
 					"Write NodeJS script to interract with vendor API",
