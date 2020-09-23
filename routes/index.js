@@ -3,6 +3,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  res.render('bootstrap', { title: 'Express' });
+});
+
+router.get('/bulma', function(req, res, next) {
   res.render('resume', { title: 'Express' });
 });
 

@@ -3,56 +3,71 @@ extends layout
 block content
 	//-takes a list of elements describing experience
 	mixin work_hist(title,start,end,company,loc,desc)
-		div.row.px-3
-			div.col-12
+		div.columns.is-multiline
+			div.column.is-12
 				b= title
 				span= ", "+start+" to "+end
-			div.col-12
+			div.column.is-12
 				b= company
 				span= " - "+loc
-			div.col-12
+			div.column.is-12
 				ul
 					each i in desc
 						li= i
 
 
 	mixin section_header(title)
-		div.row
-			div.col.text-center
+		div.columns
+			div.column.has-text-centered
 				hr
-				h3= title
+				h3.is-size-4= title
 				hr
+	
+	mixin skills_list(skills)
+		div.columns.px-5
+			div.column
+				ul.mycenter.left
+					- let i = 0;
+					while i < skills.length/2
+						li.pad= skills[i]
+						- console.log(i)
+						- i += 1;
+			div.column
+				ul.mycenter.right
+					while i < skills.length
+						- console.log(i)
+						li.pad= skills[i]
+						- i += 1;
 
 	div.about
 		div.container
-			div.row
-				div.col.text-center
-					h1 Jeffrey DeWitt
-			div.row.mb-2
-				div.col.text-center
+			div.columns.is-multiline
+				div.column.has-text-centered
+					h1.is-size-2 Jeffrey DeWitt
+			div.columns
+				div.column.has-text-centered
 					ul
 						li.inline Canton, OH
 						li.inline.dot (440) 539-1862
 						li.inline.dot jadewitt00@gmail.com
 			//hr
 			+section_header("Professional Summary")
-			div.row.px-3
-				div.col
+			div.columns.px-2
+				div.column
 					span Talented Information Technology Professional with excellent customer service and 5+ years of Windows administration experience. Motivated to learn new skills and adapt to new technologies and environments. Effective and comfortable communicating with people of all skill levels.
 			+section_header("Skills")
-			div.row.px-3
-				div.col
-					ul.mycenter.left
-						li.pad Customer Service
-						li.pad Windows Administration
-						li.pad Hyper-V Server Management
-						li.pad G Suite Administration
-				div.col
-					ul.mycenter.right
-						li.pad AWS
-						li.pad PostgreSQL
-						li.pad Javascript - Node, Express, Vue
-						li.pad Python
+			-
+				let my_skills = [
+					"Customer Service",
+					"Windows Administration",
+					"Hyper-V Server Management",
+					"G Suite Administration",
+					"AWS",
+					"PostgreSQL",
+					"Javascript - Node, Express, Vue",
+					"Python",
+				]
+			+skills_list(my_skills)
 			+section_header("Work History")
 			//-create a little form for summary, skills array, work history, then render a resume for it. Make all the HTML editable so they can adjust the content after render as well.
 			- let tasks

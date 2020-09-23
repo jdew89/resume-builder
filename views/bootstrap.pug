@@ -22,6 +22,22 @@ block content
 				hr
 				h3= title
 				hr
+					
+	mixin skills_list(skills)
+		div.row.px-3
+			div.col
+				ul.mycenter.left
+					- let i = 0;
+					while i < skills.length/2
+						li.pad= skills[i]
+						- console.log(i)
+						- i += 1;
+			div.col
+				ul.mycenter.right
+					while i < skills.length
+						- console.log(i)
+						li.pad= skills[i]
+						- i += 1;
 
 	div.about
 		div.container
@@ -40,19 +56,18 @@ block content
 				div.col
 					span Talented Information Technology Professional with excellent customer service and 5+ years of Windows administration experience. Motivated to learn new skills and adapt to new technologies and environments. Effective and comfortable communicating with people of all skill levels.
 			+section_header("Skills")
-			div.row.px-3
-				div.col
-					ul.mycenter.left
-						li.pad Customer Service
-						li.pad Windows Administration
-						li.pad Hyper-V Server Management
-						li.pad G Suite Administration
-				div.col
-					ul.mycenter.right
-						li.pad AWS
-						li.pad PostgreSQL
-						li.pad Javascript - Node, Express, Vue
-						li.pad Python
+			-
+				let my_skills = [
+					"Customer Service",
+					"Windows Administration",
+					"Hyper-V Server Management",
+					"G Suite Administration",
+					"AWS",
+					"PostgreSQL",
+					"Javascript - Node, Express, Vue",
+					"Python",
+				]
+			+skills_list(my_skills)
 			+section_header("Work History")
 			//-create a little form for summary, skills array, work history, then render a resume for it. Make all the HTML editable so they can adjust the content after render as well.
 			- let tasks
